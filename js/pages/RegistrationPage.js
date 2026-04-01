@@ -44,10 +44,10 @@ export async function renderRegistrationPage(app) {
           </div>
 
           <div class="form-group">
-            <label for="phone">Phone</label>
-            <input id="phone" type="text" />
-            <small class="error" id="phoneError"></small>
-          </div>
+  <label for="phone">Phone</label>
+  <input id="phone" type="tel" placeholder="+7 (999) 123-45-67" />
+  <small class="error" id="phoneError"></small>
+</div>
 
           <div class="form-group">
             <label for="email">Email</label>
@@ -130,7 +130,7 @@ export async function renderRegistrationPage(app) {
         }
 
         if (!isRequired(phone) || !isValidPhone(phone)) {
-            document.getElementById('phoneError').textContent = 'Enter phone in format +7 (xxx) xxx-xx-xx-xx';
+            document.getElementById('phoneError').textContent = 'Enter phone in format +7 (xxx) xxx-xx-xx';
             valid = false;
         }
 

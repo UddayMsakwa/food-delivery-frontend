@@ -14,7 +14,7 @@ export async function renderLoginPage(app) {
         <h1>Authorization</h1>
 
         <p>
-          Don’t have an account?
+          Don't have an account?
           <a href="/registration" data-link>Register here</a>
         </p>
 

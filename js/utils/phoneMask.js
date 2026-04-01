@@ -1,54 +1,60 @@
+function formatPhone(value) {
+    let digits = value.replace(/\D/g, '');
+
+    if (digits.startsWith('8')) {
+        digits = `7${digits.slice(1)}`;
+    }
+
+    if (!digits.startsWith('7')) {
+        digits = `7${digits}`;
+    }
+
+    digits = digits.slice(0, 11);
+
+    const local = digits.slice(1);
+    let result = '+7';
+
+    if (local.length > 0) {
+        result += ` (${local.slice(0, 3)}`;
+    }
+
+    if (local.length >= 3) {
+        result += ')';
+    }
+
+    if (local.length > 3) {
+        result += ` ${local.slice(3, 6)}`;
+    }
+
+    if (local.length > 6) {
+        result += `-${local.slice(6, 8)}`;
+    }
+
+    if (local.length > 8) {
+        result += `-${local.slice(8, 10)}`;
+    }
+
+    return result;
+}
+
 export function applyPhoneMask(input) {
-    input.addEventListener('input', () => {
-        const digits = input.value
-            .replace(/\D/g, '')
-            .replace(/^7/, '')
-            .slice(0, 11);
-
-        let result = '+7 ';
-
-        if (digits.length > 0) {
-            result += `(${digits.slice(0, 3)}`;
-        }
-
-        if (digits.length >= 3) {
-            result += ') ';
-        }
-
-        if (digits.length > 3) {
-            result += digits.slice(3, 6);
-        }
-
-        if (digits.length >= 6) {
-            result += '-';
-        }
-
-        if (digits.length > 6) {
-            result += digits.slice(6, 8);
-        }
-
-        if (digits.length >= 8) {
-            result += '-';
-        }
-
-        if (digits.length > 8) {
-            result += digits.slice(8, 10);
-        }
-
-        if (digits.length >= 10) {
-            result += '-';
-        }
-
-        if (digits.length > 10) {
-            result += digits.slice(10, 11);
-        }
-
-        input.value = result;
-    });
-
     input.addEventListener('focus', () => {
         if (!input.value) {
-            input.value = '+7 ';
+            input.value = '+7';
         }
     });
+
+    input.addEventListener('input', () => {
+        input.value = formatPhone(input.value);
+    });
+
+    input.addEventListener('blur', () => {
+        if (input.value === '+7') {
+            input.value = '';
+        }
+    });
+
+    if (input.value) {
+        input.value = formatPhone(input.value);
+    }
 }

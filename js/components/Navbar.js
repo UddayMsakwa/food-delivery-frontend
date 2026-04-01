@@ -15,6 +15,7 @@ export function renderNavbar() {
 
         <nav class="navbar__nav">
           <a href="/" data-link>Menu</a>
+          <a href="/profile" data-link>Profile</a>
           <a href="/orders" data-link>Orders</a>
           <a href="/cart" data-link>
             Cart
@@ -25,9 +26,7 @@ export function renderNavbar() {
         <div class="navbar__user">
           ${token
             ? `
-                <a href="/profile" data-link>
-                  ${user?.email || 'Profile'}
-                </a>
+                <span>${user?.email || 'Authorized user'}</span>
                 <button id="logoutBtn" class="btn btn--secondary">
                   Logout
                 </button>

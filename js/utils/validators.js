@@ -7,5 +7,5 @@ export function isValidEmail(email) {
 }
 
 export function isValidPhone(phone) {
-    return /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}-\d{2}$/.test(String(phone).trim());
+    return /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(String(phone).trim());
 }
