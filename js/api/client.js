@@ -5,9 +5,12 @@ async function request(path, options = {}) {
     const token = getToken();
 
     const headers = {
-        'Content-Type': 'application/json',
         ...(options.headers || {})
     };
+
+    if (options.body !== undefined) {
+        headers['Content-Type'] = 'application/json';
+    }
 
     if (token) {
         headers.Authorization = `Bearer ${token}`;
@@ -18,24 +21,34 @@ async function request(path, options = {}) {
         headers
     });
 
+    const text = await response.text();
+
     if (!response.ok) {
         let errorMessage = 'Request failed';
 
-        try {
-            const errorData = await response.json();
-            errorMessage = errorData.message || errorData.title || errorMessage;
-        } catch {
+        if (text) {
+            try {
+                const errorData = JSON.parse(text);
+                errorMessage = errorData.message || errorData.title || errorMessage;
+            } catch {
+                errorMessage = text || response.statusText || errorMessage;
+            }
+        } else {
             errorMessage = response.statusText || errorMessage;
         }
 
         throw new Error(errorMessage);
     }
 
-    if (response.status === 204) {
+    if (!text) {
         return null;
     }
 
-    return response.json();
+    try {
+        return JSON.parse(text);
+    } catch {
+        return text;
+    }
 }
 
 export const apiClient = {
@@ -46,10 +59,15 @@ export const apiClient = {
     },
 
     post(path, body) {
-        return request(path, {
-            method: 'POST',
-            body: JSON.stringify(body)
-        });
+        const options = {
+            method: 'POST'
+        };
+
+        if (body !== undefined) {
+            options.body = JSON.stringify(body);
+        }
+
+        return request(path, options);
     },
 
     put(path, body) {

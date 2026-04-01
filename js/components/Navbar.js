@@ -21,6 +21,7 @@ export function renderNavbar() {
             Cart
             <span class="cart-badge">${cartCount}</span>
           </a>
+          <a href="/purchase" data-link>Purchase</a>
         </nav>
 
         <div class="navbar__user">

@@ -13,5 +13,5 @@ export function createOrder(payload) {
 }
 
 export function confirmDelivery(id) {
-    return apiClient.post(`/order/${id}/status`, {});
+    return apiClient.post(`/order/${id}/status`);
 }
