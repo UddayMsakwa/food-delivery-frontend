@@ -1,6 +1,7 @@
 import { initRouter, registerRoute, renderRoute } from './router.js';
 import { renderLoginPage } from './pages/LoginPage.js';
 import { renderRegistrationPage } from './pages/RegistrationPage.js';
+import { renderMenuPage } from './pages/MenuPage.js';
 
 async function renderPlaceholderPage(app, title) {
     app.innerHTML = `
@@ -11,9 +12,7 @@ async function renderPlaceholderPage(app, title) {
   `;
 }
 
-registerRoute((path) => path === '/', (app) => {
-    renderPlaceholderPage(app, 'Menu');
-});
+registerRoute((path) => path === '/', renderMenuPage);
 
 registerRoute((path) => path === '/login', renderLoginPage);
 

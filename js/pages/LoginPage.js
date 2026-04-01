@@ -13,6 +13,11 @@ export async function renderLoginPage(app) {
       <section class="card auth-card">
         <h1>Authorization</h1>
 
+        <p>
+          Don’t have an account?
+          <a href="/registration" data-link>Register here</a>
+        </p>
+
         <form id="loginForm" class="form">
           <div class="form-group">
             <label for="email">Email</label>

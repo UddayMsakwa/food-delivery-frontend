@@ -33,9 +33,8 @@ export function renderNavbar() {
                 </button>
               `
             : `
-                <a href="/login" data-link>
-                  Login
-                </a>
+                <a href="/login" data-link>Login</a>
+                <a href="/registration" data-link>Register</a>
               `
         }
         </div>
