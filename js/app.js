@@ -1,4 +1,6 @@
 import { initRouter, registerRoute, renderRoute } from './router.js';
+import { renderLoginPage } from './pages/LoginPage.js';
+import { renderRegistrationPage } from './pages/RegistrationPage.js';
 
 async function renderPlaceholderPage(app, title) {
     app.innerHTML = `
@@ -13,13 +15,9 @@ registerRoute((path) => path === '/', (app) => {
     renderPlaceholderPage(app, 'Menu');
 });
 
-registerRoute((path) => path === '/login', (app) => {
-    renderPlaceholderPage(app, 'Login');
-});
+registerRoute((path) => path === '/login', renderLoginPage);
 
-registerRoute((path) => path === '/registration', (app) => {
-    renderPlaceholderPage(app, 'Registration');
-});
+registerRoute((path) => path === '/registration', renderRegistrationPage);
 
 registerRoute((path) => path === '/profile', (app) => {
     renderPlaceholderPage(app, 'Profile');
