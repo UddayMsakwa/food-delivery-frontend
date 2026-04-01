@@ -7,15 +7,7 @@ import { renderCartPage } from './pages/CartPage.js';
 import { renderOrdersPage } from './pages/OrdersPage.js';
 import { renderOrderDetailsPage } from './pages/OrderDetailsPage.js';
 import { renderPurchasePage } from './pages/PurchasePage.js';
-
-async function renderPlaceholderPage(app, title) {
-    app.innerHTML = `
-    <main class="container page">
-      <h1>${title}</h1>
-      <p>This page is under construction.</p>
-    </main>
-  `;
-}
+import { renderItemPage } from './pages/ItemPage.js';
 
 registerRoute((path) => path === '/', renderMenuPage);
 registerRoute((path) => path === '/login', renderLoginPage);
@@ -25,10 +17,7 @@ registerRoute((path) => path === '/cart', renderCartPage);
 registerRoute((path) => path === '/orders', renderOrdersPage);
 registerRoute((path) => path === '/purchase', renderPurchasePage);
 registerRoute((path) => path.startsWith('/order/'), renderOrderDetailsPage);
-
-registerRoute((path) => path.startsWith('/item/'), (app) => {
-    renderPlaceholderPage(app, 'Dish Details');
-});
+registerRoute((path) => path.startsWith('/item/'), renderItemPage);
 
 registerRoute(() => true, (app) => {
     app.innerHTML = `
