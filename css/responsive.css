@@ -1,0 +1,51 @@
+@media (max-width: 900px) {
+    .navbar__inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar__nav,
+    .navbar__user {
+        justify-content: center;
+    }
+
+    .grid--3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dish-details-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        width: min(100% - 1rem, 100%);
+    }
+
+    .page {
+        padding: 1.25rem 0 2rem;
+    }
+
+    .auth-card {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .grid--2,
+    .grid--3 {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar__inner,
+    .navbar__nav,
+    .navbar__user {
+        flex-direction: column;
+    }
+
+    .dish-card__top,
+    .order-card,
+    .cart-item {
+        flex-direction: column;
+    }
+}

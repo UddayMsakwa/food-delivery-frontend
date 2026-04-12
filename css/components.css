@@ -1,0 +1,150 @@
+.navbar {
+    background-color: #111827;
+    color: #ffffff;
+    padding: 1rem 0;
+}
+
+.navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.navbar__brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.navbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.navbar__user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.cart-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.4rem;
+    border-radius: 999px;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-size: 0.8rem;
+    margin-left: 0.35rem;
+}
+
+.footer {
+    border-top: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    padding: 1.25rem 0;
+    color: #6b7280;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+.btn--primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn--secondary {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+
+.btn--danger {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-control__value {
+    min-width: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.pagination__link {
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+}
+
+.pagination__link--active {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.star-rating__star {
+    font-size: 1.4rem;
+    color: #d1d5db;
+}
+
+.star-rating__star--active {
+    color: #f59e0b;
+}
+
+.star-rating__star[data-action="rate-dish"] {
+    cursor: pointer;
+}
+
+.star-rating__value {
+    font-weight: 700;
+    margin-left: 0.3rem;
+}
